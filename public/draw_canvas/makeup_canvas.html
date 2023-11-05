@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../style.css" rel="stylesheet"></link>  
+    <title>Document</title>
+</head>
+<body>
+    <div class="nav">
+        <button id="close">X</button>
+        <h1>DRAW THE MAKEUP</h1>
+    </div> 
+
+    <div class="creator_info">
+        <h1>Create a brief</h1>
+        <input id="creator-name"></input>
+        <input id="creator-title"></input>
+        <input id="creator-description"></input>
+        <button id="SUBMIT">SUBMIT</button>
+    </div>
+    <div class="color">
+        <button id="red"></button>
+        <button id="grey"></button>
+    </div>
+
+    <div id="entryPopup" class="popup" style="display:block;">
+        <div class="popup-content">
+            <p>Are you sure to leave?</p>
+            <button id="BACK">BACK</button>
+            <button id="YES">YES</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+    <script src="../draw_canvas/makeup_canvas.js"></script>
+</body>
+</html>

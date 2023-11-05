@@ -1,0 +1,102 @@
+body{
+    background-color: blueviolet;
+    margin:0;
+    }
+.nav{
+    height:150px;
+    background-color: black;
+    color:white;
+     }
+.navword{
+  float:left;
+ }
+
+ .gallery{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 90%;
+    margin: 0 auto;
+ }
+
+ .gallery img {
+    max-width: 100%; /* 图片最大宽度为其容器的100% */
+    height: auto; /* 保持宽高比 */
+}
+
+.detail_container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+
+
+.creator_info{
+    position: absolute;
+    margin-top: 24%;
+    margin-left: 76%;
+}
+
+#red{
+    min-height: 30px;
+    min-width: 30px;
+    background-color: rgb(225 65 65);
+    border: none;
+    border-radius: 50px;
+    position: absolute;
+    margin-top: 31%;
+    margin-left: 2%;
+}
+
+#grey{
+    min-height: 30px;
+    min-width: 30px;
+    background-color: rgb(149, 149, 149);
+    border: none;
+    border-radius: 50px;
+    position: absolute;
+    margin-top: 31%;
+    margin-left: 4%;
+}
+
+
+.popup-content{
+    background-color: white;
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    text-align: center;
+}
+#YES{
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#BACK{
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
