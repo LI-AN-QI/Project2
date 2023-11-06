@@ -1,8 +1,11 @@
 
-const express = require('express');
-const app = express();
+let express = require('express');
+let app = express();
+app.use(express.json());
 
-app.use('/', express.static('public/homepage'));
+let pTracker = [];
+
+
 
 // let multer = require('multer');
 // let upload = multer();
@@ -14,6 +17,37 @@ db.on("ready", () => {
     console.log("Connected to the database");
 });
 db.connect(); 
+
+
+app.use('/', express.static('public'));
+
+////////////////////////////
+app.post('/Detail',(req,res)=>{
+    console.log(req.body);
+
+    let obj = {
+        Img:req.body.img,
+        Name: req.body.name,
+        Title: req.body.title
+    };
+    db.push("pTracker",obj);
+    res.json({task:"sucess"});
+});
+
+app.get('/CheckDetail',(req,res)=>{
+    db.get("pTracker").then(pData =>{
+        let obj = {data: pData};
+        res.json(obj);
+    })
+    
+});
+
+////////////////////////////////
+
+
+
+
+
 
 
 

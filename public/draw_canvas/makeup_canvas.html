@@ -3,35 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../style.css" rel="stylesheet"></link>  
+    <link href="../style.css" rel="stylesheet"></link>
+    
+     <!-- font -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Flavors&family=IBM+Plex+Sans:wght@200;300;400;500;600;700&family=Roboto+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Vibur&display=swap" rel="stylesheet"> 
+
     <title>Document</title>
 </head>
-<body>
-    <div class="nav">
-        <button id="close">X</button>
-        <h1>DRAW THE MAKEUP</h1>
+<body style="background-color: rgb(255, 255, 255);">
+    <div class="nav_draw">
+        <button id="close">+</button>
+        <h1 id="drawthemakeup">DRAW YOUR IDEA</h1>
     </div> 
 
     <div class="creator_info">
-        <h1>Create a brief</h1>
-        <input id="creator-name"></input>
-        <input id="creator-title"></input>
-        <input id="creator-description"></input>
-        <button id="SUBMIT">SUBMIT</button>
+        <h1 id="creator_guide">Create a brief</h1>
+        <div class="input_grid">
+            <label for="creator_name_input">Name:</label>
+            <input type="text" id="creator_name_input" placeholder="Your name"></input>
+        </div>
+        
+        <div class="input_grid">
+            <label for="creator_title_input">Title:</label>
+            <input type="text" id="creator_title_input" placeholder="Title of the draw"></input>
+        </div>
+        
+        <!-- <div class="input_grid">
+            <label for="creator_description_input">Description:</label>
+            <input type="text" id="creator_description_input" placeholder="Description of the draw"></input>
+        </div> -->
+        
+        <button id="SUBMIT" onclick="saveDrawing()">SUBMIT</button>
     </div>
-    <div class="color">
-        <button id="red"></button>
-        <button id="grey"></button>
-    </div>
+
 
     <div id="entryPopup" class="popup" style="display:block;">
         <div class="popup-content">
             <p>Are you sure to leave?</p>
-            <button id="BACK">BACK</button>
-            <button id="YES">YES</button>
+            <button id="CANCEL">CANCEL</button>
+            <button id="YES" onclick="window.location.href='../index.html'">YES</button>
         </div>
     </div>
-
+    <div id="drawtool">
+        <img id="erasetool" src="../img/erase.png"/>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
     <script src="../draw_canvas/makeup_canvas.js"></script>
 </body>

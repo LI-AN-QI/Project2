@@ -1,14 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../style.css" rel="stylesheet"></link>  
+
+<!-- font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Flavors&family=Roboto+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Vibur&display=swap" rel="stylesheet">
+
+
     <title>Document</title>
 </head>
 <body>
     <div class="nav">
-        <h1>halloween draw</h1>
+        <h1 class="halloweengallery">Halloween<br/> gallery</h1>
         <div class="navword">
             <button>Gallery</button>
             <button>Galleries</button>
@@ -20,12 +29,13 @@
         <div>
             <img src="../img/1.jpg"/>
         </div>
-        <div>
-            <h1>title</h1>
-            <h2>by xxx</h2>
-            <p>xxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <div class="detail_info">
+            <h1 id="detail_title">title</h1>
+            <h2 id="detail_name">By xxx</h2>
+            <p id="detail_p">This is the description of the img.</p>
         </div>
     </div>
     
+    <script src="../gallery_detail/gallery_detail.js"></script>
 </body>
 </html>

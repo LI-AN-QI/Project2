@@ -1,67 +1,283 @@
+/* ////////////HOMEPAGE///////////// */
+#CreateNow:hover{
+    cursor: pointer;
+    color:blueviolet;
+    transition:0.7s;
+}
+
+#Gallery:hover{
+    cursor: pointer;
+    color:blueviolet;
+    transition:0.7s;
+}
+
+/* /////////////////MAKEUP_CANVAS//////////////////*/
+.nav_draw{
+    background-color: black;
+    color: white;
+    position: fixed;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#close{
+    font-family: auto;
+    font-weight: 100;
+    rotate: 45deg;
+    font-size: 39px;
+    background: none;
+    color: rgb(255, 255, 255);
+    border: none;
+    position: absolute;
+    margin-top: -5%;
+    margin-right: -96%;
+}
+#close:hover{
+    cursor: pointer;
+    color:blueviolet;
+    transition:0.7s;
+}
+
+#drawthemakeup{
+    position: absolute;
+    font-size: 36px;
+    text-align: center;
+    font-weight: 200;
+}
+
+#defaultCanvas0{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* width: 100vw;
+    height: 100vh; */
+    position: fixed;
+    z-index: -1;
+}
+
+/* //SUBMIT PART// */
+.creator_info{
+    position: fixed;
+    display: grid;
+    margin-top: 11%;
+    margin-left: 76%;
+    grid-row-gap: 26px;
+    grid-template-rows: 150px 47px 47px 110px;
+    justify-content: center;
+    align-items: center;
+    width: 18%;
+    grid-template-columns: 1fr;
+}
+
+#creator_guide{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+    font-size: 30px;
+}
+
+#creator_name_input, #creator_title_input{
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #303030;
+    padding: 0 0 8px 0;
+    background: none;
+}
+
+input{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: black;
+}
+
+input::placeholder{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size:17px; 
+    font-weight:400;
+    color: rgb(213, 213, 213);
+}
+
+label{
+    font-size:13px;
+}
+
+.input_grid{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+}
+
+#SUBMIT{
+    font-weight: 400;
+    font-size: 17px;
+    padding: 15px;
+    min-height: 52px;
+    min-width: 160px;
+    background-color: #f2f2f2;
+    color: rgb(0 0 0);
+    border: none;
+}
+
+#SUBMIT:hover{
+    cursor: pointer;
+    color:rgb(255, 255, 255);
+    background-color: blueviolet;
+    transition:0.7s;
+}
+/* //// */
+
+
+/*//////////////////////// Are you sure to leave */
+
+#YES{
+    background-color: blueviolet;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#YES:hover{
+    cursor: pointer;
+    color:rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    transition:0.7s;
+}
+
+#CANCEL{
+    background: none;
+    /* border: none; */
+    color: blueviolet;
+    border: 2px solid #e0e0e0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#CANCEL:hover{
+    cursor: pointer;
+    color:rgb(255, 255, 255);
+    background-color:rgb(0, 0, 0);
+    transition:0.7s;
+}
+
+/* Are you sure to leave ////////////////*/
+input[type="color"] {
+    width: 53px; /* 设置颜色选择器的宽度 */
+    height: 53px; /* 设置颜色选择器的高度 */
+    border: none; /* 设置边框样式 */
+    border-radius: 50%; /* 设置边框圆角 */
+  }
+  
+  /* 修改colorPicker的伪元素样式（颜色图标） */
+  input[type="color"]::-webkit-color-swatch {
+    border:none; /* 设置颜色选择器图标的边框样式 */
+    border-radius: 50%; /* 设置颜色选择器图标的边框圆角 */
+    
+  }
+
+  #erasetool{
+    width: 44px;
+    position: absolute;
+    margin-top: 42.7%;
+    margin-left: 6.5%;
+}
+/* /////////////////MAKEUP_CANVAS////////////////// */
+
+.halloweengallery{
+    /* font-family: 'Flavors', cursive; //另一个手写字体 */
+    font-family: 'Flavors', cursive;
+    font-weight: 500;
+    font-size: 53px;
+    position: absolute;
+    margin-left: 7%;
+    margin-top: 1.5%;
+}
+
+
 body{
     background-color: blueviolet;
     margin:0;
+    font-family: 'Roboto Condensed', sans-serif;
     }
+
+button{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: large;
+}
+
+.navword button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    margin: 5px;
+}
+
 .nav{
-    height:150px;
+    height:190px;
     background-color: black;
     color:white;
      }
 .navword{
-  float:left;
+    font-size: 55px;
+    position: absolute;
+    bottom: 75%;
+    right: 1%;
  }
 
- .gallery{
+ #gallery{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     width: 90%;
     margin: 0 auto;
+    margin-top:40px;
  }
+/* ////////// */
+ .info-container {
+    display: grid;
+    grid-template-rows: auto auto; /* 指定两行，一行放Name，一行放Title */
+    gap: 10px;
+    text-align: center; /* 居中对齐内容 */
+    padding: 10px;
+    background: white; /* 可根据需要修改背景色 */
+}
+/* /////////////// */
 
- .gallery img {
+ #gallery img {
     max-width: 100%; /* 图片最大宽度为其容器的100% */
     height: auto; /* 保持宽高比 */
 }
 
-.detail_container{
+/* .detail_container{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     width: 90%;
     margin: 0 auto;
-}
+} */
 
 
 
 
-.creator_info{
-    position: absolute;
-    margin-top: 24%;
-    margin-left: 76%;
-}
 
-#red{
+
+/* #erase{
     min-height: 30px;
     min-width: 30px;
-    background-color: rgb(225 65 65);
+    background-color: rgb(156, 134, 134);
     border: none;
     border-radius: 50px;
     position: absolute;
     margin-top: 31%;
     margin-left: 2%;
-}
-
-#grey{
-    min-height: 30px;
-    min-width: 30px;
-    background-color: rgb(149, 149, 149);
-    border: none;
-    border-radius: 50px;
-    position: absolute;
-    margin-top: 31%;
-    margin-left: 4%;
-}
+} */
 
 
 .popup-content{
@@ -69,7 +285,7 @@ body{
     width: 300px;
     margin: 100px auto;
     padding: 20px;
-    border: 1px solid #ddd;
+    border-bottom: 2.5px solid #383838;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -84,19 +300,38 @@ body{
     z-index: 1;
     text-align: center;
 }
-#YES{
-    background-color: #007BFF;
+
+/* //////////////////////////////////detail界面 */
+
+.detail_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5%;
     color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
 }
-#BACK{
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+.detail_container > div {
+    margin: 10px;
+}
+
+.detail_container img {
+    width: 88%;
+    height: auto;
+}
+
+.detail_container h1{
+    margin: 150px 90px 30px 20px;
+    font-size: 50px;
+}
+
+.detail_container h2 {
+    margin: 0px 90px 30px 20px;
+    font-size: 25px;
+}
+.detail_container p {
+    margin: 0px 90px 30px 20px;
+}
+
+/* /////////////gallery page ///////////// */
+#detail_preview{
+    color:white;
 }
