@@ -5,6 +5,9 @@ let app = express();
 const { TextEncoder } = require('util');
 global.TextEncoder = TextEncoder;
 
+const { TextDecoder } = require('util');
+global.TextDecoder = TextDecoder;
+
 app.use(express.json());
 
 app.use(express.json({ limit: '10mb' }));
