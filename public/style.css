@@ -1,4 +1,26 @@
 /* ////////////HOMEPAGE///////////// */
+#spider{
+    position: absolute;
+    z-index: -1;
+    margin-left: -17.5%;
+    margin-top: -0.5%;
+    width: 39%;
+    animation: move 8s infinite;
+    rotate: -90deg;
+}
+
+@keyframes move{
+    0%{
+        transform:translateX(0px);
+    }
+    50%{
+        transform: translateX(-9vw);
+    }
+    100%{
+        transform: translateX(0vw);
+    }
+}
+
 #CreateNow:hover{
     cursor: pointer;
     color:blueviolet;
@@ -41,19 +63,23 @@
     transition:0.7s;
 }
 
-#drawthemakeup{
+.drawthemakeup{
     position: absolute;
     font-size: 36px;
     text-align: center;
     font-weight: 200;
+    color:#c0c0c0
+}
+
+#refresh{
+    position: absolute;
+    margin-top: 7%;
+    font-weight: 200;
+    font-size: 15px;
+    color: #a6a6a6;
 }
 
 #defaultCanvas0{
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    /* width: 100vw;
-    height: 100vh; */
     position: fixed;
     z-index: -1;
 }
@@ -152,7 +178,6 @@ label{
 
 #CANCEL{
     background: none;
-    /* border: none; */
     color: blueviolet;
     border: 2px solid #e0e0e0;
     padding: 10px 20px;
@@ -166,18 +191,35 @@ label{
     transition:0.7s;
 }
 
+#OK{
+    background-color: blueviolet;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#OK:hover{
+    cursor: pointer;
+    color:rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    transition:0.7s;
+}
+
 /* Are you sure to leave ////////////////*/
+/* background of color picker */
 input[type="color"] {
-    width: 53px; /* 设置颜色选择器的宽度 */
-    height: 53px; /* 设置颜色选择器的高度 */
-    border: none; /* 设置边框样式 */
-    border-radius: 50%; /* 设置边框圆角 */
+    width: 53px; 
+    height: 53px; 
+    border: none; 
+    border-radius: 50%; 
   }
   
-  /* 修改colorPicker的伪元素样式（颜色图标） */
+  /* color lcon of colorPicker */
   input[type="color"]::-webkit-color-swatch {
-    border:none; /* 设置颜色选择器图标的边框样式 */
-    border-radius: 50%; /* 设置颜色选择器图标的边框圆角 */
+    border:none; 
+    border-radius: 50%; 
     
   }
 
@@ -190,15 +232,26 @@ input[type="color"] {
 /* /////////////////MAKEUP_CANVAS////////////////// */
 
 .halloweengallery{
-    /* font-family: 'Flavors', cursive; //另一个手写字体 */
     font-family: 'Flavors', cursive;
     font-weight: 500;
-    font-size: 53px;
+    font-size: 67px;
     position: absolute;
-    margin-left: 7%;
+    margin-left: 6%;
     margin-top: 1.5%;
+    margin-bottom: 135px;
+    line-height: 1;
 }
 
+.seeyourwork{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    font-weight:200;
+    margin-top: 54px;
+    margin-bottom: 78px;
+
+}
 
 body{
     background-color: blueviolet;
@@ -220,7 +273,7 @@ button{
 }
 
 .nav{
-    height:190px;
+    height: 26vh;
     background-color: black;
     color:white;
      }
@@ -242,43 +295,38 @@ button{
 /* ////////// */
  .info-container {
     display: grid;
-    grid-template-rows: auto auto; /* 指定两行，一行放Name，一行放Title */
+    grid-template-rows: auto auto; 
     gap: 10px;
-    text-align: center; /* 居中对齐内容 */
+    text-align: center; 
     padding: 10px;
-    background: white; /* 可根据需要修改背景色 */
+    background: rgb(215, 206, 220);
+    border-radius: 17px;
 }
+.info-container h1 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 30px;
+    line-height: 0.5; 
+}
+
+.info-container h2 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15px;
+    line-height: 0.5; 
+}
+
 /* /////////////// */
 
  #gallery img {
-    max-width: 100%; /* 图片最大宽度为其容器的100% */
-    height: auto; /* 保持宽高比 */
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 15px;
+    transition: box-shadow 0.3s ease-in-out; 
+    will-change: transform; 
 }
-
-/* .detail_container{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    width: 90%;
-    margin: 0 auto;
-} */
-
-
-
-
-
-
-/* #erase{
-    min-height: 30px;
-    min-width: 30px;
-    background-color: rgb(156, 134, 134);
-    border: none;
-    border-radius: 50px;
-    position: absolute;
-    margin-top: 31%;
-    margin-left: 2%;
-} */
-
+.info-container img:hover {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); 
+    transform: translateY(-3px); 
+}
 
 .popup-content{
     background-color: white;
@@ -301,7 +349,7 @@ button{
     text-align: center;
 }
 
-/* //////////////////////////////////detail界面 */
+/* //////////////////////////////////detail page */
 
 .detail_container {
     display: flex;

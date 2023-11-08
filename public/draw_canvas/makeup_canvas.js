@@ -1,83 +1,84 @@
-//p5 code
+/////////////////////////////////////////////Code for P5/////////////////////////////////////////////
 let colorSelector;
 let erasemode;
 let canvas;
+
 function setup() {
+  //Create a canvas
   const render = createCanvas(windowWidth*0.75, windowHeight);
   canvas = render.canvas;
-    background(255);
+  background(255);
 
-    // 创建颜色选择器
+  // Create a colorPicker (initial color & position)
   colorPicker = createColorPicker('#A449EE');
-  
   colorPicker.position(30, height-90);
 
-  // 监听颜色选择器的变化事件
+  // Listen to the event of color input to the colorPicker
   colorPicker.input(changeColor);
 
-  // 初始化选定的颜色
+  // Create a selectedColor, set the color value of colorPicker to it
   selectedColor = colorPicker.color();
 
-  //A button to clear the canvas
+  //Create a button to clear the canvas
   let erasetool = select("#erasetool"); 
   erasetool.mousePressed(eraseCanvas); 
-  }
-
-
+}
 
 function mouseDragged() {
+  //Create a paintbrush
     noStroke();
     fill(selectedColor);
     ellipse(mouseX, mouseY, 15); 
 }
 
 function changeColor() {
-  // 当颜色选择器的颜色发生变化时，更新选定的颜色
+  //Change the paintbrush color when the colorPicker change
   selectedColor = colorPicker.color();
 }
 
 
 function eraseCanvas(){
+  //Change the paintbrush color to white to erase
   selectedColor = (255)
 }
 
 
 function saveDrawing(){
-  // let fileName = 'MYDRAW_' + Date() + '.png';
-  // saveCanvas(fileName, 'png');
+  //Automatically download the drawing as a jpeg file when click 'SUBMIT'
+  let fileName = 'MYDRAW_' + Date() + '.jpeg';
+  saveCanvas(fileName, 'jpeg');
 
-
+  //Captures the content of the canvas element as a JPEG image in base64-encoded format (which will return a string).
   const base64ImageData = canvas.toDataURL('image/jpeg');
-                         
-  
-  // use `base64ImageData`, it's a string
-  console.log(base64ImageData);
-  // send it to backend,
-  // i.e. save to mongodb
+  return base64ImageData;//...then save the string into mongoDB
   
 }
 
-///////////////////////////p5 code end//////
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+///////////////////////////////Code for the events of SUBMIT button//////////////////////////////////
 
 window.addEventListener('load',()=>{
 
+  //<<<<<<<<<<<<Get user input and save into mongodb>>>>>>>>>>>
   document.getElementById('SUBMIT').addEventListener('click',()=>{
 
+    //Get the user input content (name & title)
     let name = document.getElementById('creator_name_input').value;
     let title = document.getElementById('creator_title_input').value;
-    
 
-
+    //Create an object to save the canvas content & user input 
     let obj = {
-      "img":base64ImageData,
+      //call the function saveDrawing to get the return of the canvas content as string data 
+      "img":saveDrawing(),
       "name":name,
       "title":title
     };
 
-
+    //Post the object to the database
     let jsonData = JSON.stringify(obj);
-
     fetch('/Detail',{
         method:'POST',
         headers:{
@@ -91,77 +92,63 @@ window.addEventListener('load',()=>{
   });
 
 
+  //<<<<<<<<<<<<Fetch a random prompt from local json file, show it on the page>>>>>>>>>>>
+  fetch('prompt.json')
+  .then(response => response.json())
+  .then(data => {
+    let promptArray = data.prompts;
+    let randomprompt = Math.floor(Math.random()*promptArray.length);
+    let promptElement = document.getElementById('prompt-name');
+    promptElement.innerHTML = promptArray[randomprompt];
+  })
 
-
-
-
-
+  //Return the error
+  .catch(error => {
+   console.log("Error!!! : " + error);
+  })
 
 })
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+///////////////////////////////////////Code for popup windows////////////////////////////////////////
 
-
-
-
-
-
-//Submitted!弹窗
+//<<<<<<<<<<<<Create a Popup window for 'X' button>>>>>>>>>>>
 
 let entryPopup = document.getElementById('entryPopup');
 let close = document.getElementById('close');
 let CANCEL = document.getElementById('CANCEL');
 let YES = document.getElementById('YES');
+
+//<<<<<<<<<<<<Create a Popup window for 'SUBMIT' button>>>>>>>>>>>
+let submitentryPopup = document.getElementById('submitentryPopup');
 let SUBMIT = document.getElementById('SUBMIT');
 
 
-// 当用户点击 "X" 按钮时
-close.addEventListener('click', function() {
-    entryPopup.style.display = 'block'
-});
+//Show and hide of the popup windows:
 
-// 在页面加载时隐藏
-window.onload = function() {
+// Hide the popup window when the page is loaded
+window.load = function() {
     entryPopup.style.display = 'none';
+    submitentryPopup.style.display = 'none';
 };
 
+// Show the popup window when click 'X'
+close.addEventListener('click', function() {
+  entryPopup.style.display = 'block'
+});
+
+// Hide the popup window click 'Cancel'
 CANCEL.addEventListener('click', function() {
   entryPopup.style.display = 'none'
 });
 
-YES.addEventListener('click', function() {
-  //导航到相应的gallery
+// Show the popup window when click 'SUBMIT'
+SUBMIT.addEventListener('click',function(){
+  submitentryPopup.style.display = 'block'
 });
 
-SUBMIT.addEventListener('click',function saveCanvasToMongoDB(){
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-});
-
-
-
-
-
-//////////////////////// 
-// function saveCanvasToMongoDB() {
-//   let canvas = document.querySelector('canvas');
-//   let imgData = canvas.toDataURL('image/png');
-
-//   // 发送图像数据到服务器
-//   fetch('/uploadToMongoDB', {
-//       method: 'POST',
-//       headers: {
-//           'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify({ image: imgData })
-//   })
-//   .then(response => {
-//       // 处理响应
-//   })
-//   .catch(error => {
-//       // 处理错误
-//   });
-// }
-
-//////////////////////////////////////////////////////////////////////////////
 

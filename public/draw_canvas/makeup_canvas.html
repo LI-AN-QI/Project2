@@ -10,14 +10,17 @@
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Flavors&family=IBM+Plex+Sans:wght@200;300;400;500;600;700&family=Roboto+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Vibur&display=swap" rel="stylesheet"> 
 
-    <title>Document</title>
+    <title>Let's Draw!!</title>
 </head>
 <body style="background-color: rgb(255, 255, 255);">
+    <!-- the top navigation bar-->
     <div class="nav_draw">
         <button id="close">+</button>
-        <h1 id="drawthemakeup">DRAW YOUR IDEA</h1>
+        <h1 class="drawthemakeup">DRAW A HALLOWEEN  <span id="prompt-name" style="color: white;font-weight: 400;"></span></h1>
+        <h4 id="refresh">Refresh the page to change the prompt.</h4>
     </div> 
 
+    <!-- user information input section -->
     <div class="creator_info">
         <h1 id="creator_guide">Create a brief</h1>
         <div class="input_grid">
@@ -29,26 +32,31 @@
             <label for="creator_title_input">Title:</label>
             <input type="text" id="creator_title_input" placeholder="Title of the draw"></input>
         </div>
-        
-        <!-- <div class="input_grid">
-            <label for="creator_description_input">Description:</label>
-            <input type="text" id="creator_description_input" placeholder="Description of the draw"></input>
-        </div> -->
-        
-        <button id="SUBMIT" onclick="saveDrawing()">SUBMIT</button>
+        <button id="SUBMIT">SUBMIT</button>
     </div>
 
-
-    <div id="entryPopup" class="popup" style="display:block;">
+    <!-- 'X'(leaving page) popup window -->
+    <div id="entryPopup" class="popup" style="display:none;">
         <div class="popup-content">
             <p>Are you sure to leave?</p>
             <button id="CANCEL">CANCEL</button>
             <button id="YES" onclick="window.location.href='../index.html'">YES</button>
         </div>
     </div>
+
+    <!-- 'submit' popup window -->
+    <div id="submitentryPopup" class="popup" style="display:none">
+        <div class="popup-content">
+            <p>Submitted!</p>
+            <button id="OK" onclick="window.location.href='../index.html'">OK</button>
+        </div>
+    </div>
+
+    <!-- erase tool -->
     <div id="drawtool">
         <img id="erasetool" src="../img/erase.png"/>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
     <script src="../draw_canvas/makeup_canvas.js"></script>
 </body>

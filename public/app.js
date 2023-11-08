@@ -1,57 +1,37 @@
-// 
-//fetch monogo上的数据， data填入page
+//fetch from monogoDB， present the data into the page
 
 
 window.addEventListener('load',()=>{
+    //Fetch from database
     fetch('/CheckDetail')
     .then(resp=> resp.json())
     .then(data => {
-
-
-        // document.getElementById('detail_info').innerHTML = '';
-        // document.getElementById('detail_title').innerHTML = '';
-        // document.getElementById('detail_name').innerHTML = '';
-        // document.getElementById('detail_p').innerHTML = '';
-
-        console.log(data.data[1].Title);
-
-
+        console.log(data.data);
         for(let i=0;i<data.data.length;i++) {                     
             let name = data.data[i].Name;
             let title = data.data[i].Title;
+            let img = data.data[i].Img;
 
-            // 创建一个新的<div>用于包含Name和Title
+            // Create a <div> to contain Name and Title
             let infoDiv = document.createElement('div');
-            infoDiv.className = 'info-container'; // 添加一个CSS类名，用于样式控制
+            infoDiv.className = 'info-container'; // add a css clss name to control the style
 
-            // 创建并添加Name
-            let nameElement = document.createElement('h1');
-            nameElement.innerHTML = name;
-            infoDiv.appendChild(nameElement);
-
-            // 创建并添加Title
-            let titleElement = document.createElement('h2');
-            titleElement.innerHTML = title;
-            infoDiv.appendChild(titleElement);
-
-            // 创建并添加img
+            // Create a <img> and add a src using the base64ImageData string saved in database
             let imgElement = document.createElement('img');
-            imgElement.innerHTML = img;
+            imgElement.src = img;
             infoDiv.appendChild(imgElement);
-        
 
-            // for demo purpose
-            const img = document.body.appendChild(document.createElement('img'));
-            
-            img.style.cssText = `width: 200px;height: 200px;border:1px solid #000;`;
-            // when you want to show in the page, set the img.src to this base64 string.
-            img.src = base64ImageData;
+           // Create a <h1> and get data from the database
+           let nameElement = document.createElement('h1');
+           nameElement.innerHTML = name;
+           infoDiv.appendChild(nameElement);
 
+           // Create a <h2> and get data from the database
+           let titleElement = document.createElement('h2');
+           titleElement.innerHTML = title;
+           infoDiv.appendChild(titleElement);
 
-
-
-
-            // 将新的<div>添加到id="gallery"中
+            // Add the new <div> into the id="gallery"
             document.getElementById('gallery').appendChild(infoDiv);
         }
 
