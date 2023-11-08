@@ -9,6 +9,9 @@ function setup() {
   canvas = render.canvas;
   background(255);
 
+  // Set the willReadFrequently attribute to true
+  canvas.willReadFrequently = true;
+
   // Create a colorPicker (initial color & position)
   colorPicker = createColorPicker('#A449EE');
   colorPicker.position(30, height-90);
